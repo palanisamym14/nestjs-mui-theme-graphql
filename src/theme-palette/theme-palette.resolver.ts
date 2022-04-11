@@ -11,16 +11,15 @@ export class ThemePaletteResolver {
     constructor(private themePaletteService: ThemePaletteService) { }
 
 
-    @Query(() => ThemePalette, { name: 'getThemeByUserId' })
+    @Query(() => ThemePalette, { name: 'getTheme' })
     @UseGuards(JwtAuthGuard)
-    async getThemeByUserId(@Args('userId') input: string) {
-        console.log(input);
-        return this.themePaletteService.get(input);
+    async getTheme(@AuthUser() user: any) {
+        return this.themePaletteService.get(user.userId);
     }
 
     @Mutation(() => ThemePalette, { name: 'updateTheme' })
     @UseGuards(JwtAuthGuard)
     async updateTheme(@Args('body') body: ThemePaletteInput, @AuthUser() user:any) {
-        return this.themePaletteService.update(body);
+        return this.themePaletteService.update(body, user.userId);
     }
 }

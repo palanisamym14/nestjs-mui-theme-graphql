@@ -11,15 +11,15 @@ export class ThemePaletteService {
 
     ) { }
 
-    async get(id: string) {
-        const theme = await this.themePaletteModel.findOne({ userId: id }).exec();
+    async get(userId: string) {
+        const theme = await this.themePaletteModel.findOne({ userId }).exec();
         if (theme) {
             return theme;
         }
         return this.themePaletteModel.findOne({ type: "default" }).exec();
     }
 
-    async update(input: ThemePaletteInput) {
-        return this.themePaletteModel.findOneAndUpdate({ userId: input.userId }, input, { upsert: true, new: true }).exec();
+    async update(input: ThemePaletteInput, user) {
+        return this.themePaletteModel.findOneAndUpdate({ userId: user.userId }, input, { upsert: true, new: true }).exec();
     }
 }

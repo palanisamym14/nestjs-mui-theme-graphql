@@ -6,10 +6,6 @@ export class ThemePaletteInput {
 
   @Field()
   @IsString()
-  userId: string;
-
-  @Field()
-  @IsString()
   @IsOptional()
   primary: string;
 

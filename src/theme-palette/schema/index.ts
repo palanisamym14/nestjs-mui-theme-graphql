@@ -3,7 +3,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema({ timestamps: true })
 export class ThemePalette {
-  @Prop()
+  @Prop({ required: true, unique: true })
   userId: string;
   
   @Prop()

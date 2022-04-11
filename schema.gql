@@ -13,8 +13,8 @@ type Mutation {
 }
 
 type Query {
-  getThemeByUserId(userId: String!): ThemePalette!
-  getUserById(id: String!): User!
+  getTheme: ThemePalette!
+  getUser: User!
 }
 
 type ThemePalette {
@@ -26,12 +26,11 @@ type ThemePalette {
 input ThemePaletteInput {
   primary: String!
   secondary: String!
-  userId: String!
 }
 
 type User {
+  _id: ID!
   email: String!
-  id: ID!
   userName: String!
 }
 
