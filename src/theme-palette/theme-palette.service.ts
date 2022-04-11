@@ -19,7 +19,7 @@ export class ThemePaletteService {
         return this.themePaletteModel.findOne({ type: "default" }).exec();
     }
 
-    async update(input: ThemePaletteInput, user) {
-        return this.themePaletteModel.findOneAndUpdate({ userId: user.userId }, input, { upsert: true, new: true }).exec();
+    async update(input: ThemePaletteInput, userId: string) {
+        return this.themePaletteModel.findOneAndUpdate({ userId }, input, { upsert: true, new: true }).exec();
     }
 }
