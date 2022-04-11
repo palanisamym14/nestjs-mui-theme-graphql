@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthToken {
+  token: String!
+}
+
+type Mutation {
+  createUser(body: UserInfoInput!): User!
+  login(body: UserInfoInput!): AuthToken!
+  updateTheme(body: ThemePaletteInput!): ThemePalette!
+}
+
+type Query {
+  getThemeByUserId(userId: String!): ThemePalette!
+  getUserById(id: String!): User!
+}
+
+type ThemePalette {
+  id: ID
+  primary: String
+  secondary: String
+}
+
+input ThemePaletteInput {
+  primary: String!
+  secondary: String!
+  userId: String!
+}
+
+type User {
+  email: String!
+  id: ID!
+  userName: String!
+}
+
+input UserInfoInput {
+  email: String!
+  password: String!
+}
