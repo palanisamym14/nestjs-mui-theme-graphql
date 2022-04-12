@@ -11,7 +11,6 @@ export class AuthService {
         const { email, password } = body;
         const user = await this.usersService.findByEmail(email);
         const match = compareHash(password, user.password);
-        console.log(match);
         if (!match) {
             throw new BadRequestException('password mismatch');
         }

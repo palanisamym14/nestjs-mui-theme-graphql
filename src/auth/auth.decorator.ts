@@ -10,7 +10,7 @@ export const AuthUser = createParamDecorator(
         const headers = GqlExecutionContext.create(ctx).getContext().req.headers;
         try {
             // Remove 'Bearer' prefix and get the token.
-            const token = headers.authorization.substring(
+            const token = headers.authorization?.substring(
                 7,
                 headers.authorization.length,
             );
@@ -20,6 +20,7 @@ export const AuthUser = createParamDecorator(
                 const decoded: any = jwt.verify(token, jwtConstants.secret);
                 return decoded;
             }
+            return {};
         } catch (e) {
 
             throw new AuthenticationError("AUTHORIZATION_FAILURE", {

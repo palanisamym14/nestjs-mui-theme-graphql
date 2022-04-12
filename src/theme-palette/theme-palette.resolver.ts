@@ -12,7 +12,7 @@ export class ThemePaletteResolver {
 
 
     @Query(() => ThemePalette, { name: 'getTheme' })
-    @UseGuards(JwtAuthGuard)
+    // @UseGuards(JwtAuthGuard)
     async getTheme(@AuthUser() user: any) {
         return this.themePaletteService.get(user.userId);
     }
