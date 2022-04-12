@@ -5,7 +5,7 @@ import { UserService } from './user.service';
 import { UserInfoInput } from './dto/login.dto';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-import { AuthUser } from 'src/auth/auth.ecorator';
+import { AuthUser } from 'src/auth/auth.decorator';
 
 @Resolver((of) => User)
 export class UserResolver {

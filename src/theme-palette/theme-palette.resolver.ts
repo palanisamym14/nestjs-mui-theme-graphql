@@ -1,6 +1,6 @@
 import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { AuthUser } from 'src/auth/auth.ecorator';
+import { AuthUser } from 'src/auth/auth.decorator';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { ThemePaletteInput } from './dto/theme-palette.dto';
 import { ThemePalette } from './theme-palette.modal';
